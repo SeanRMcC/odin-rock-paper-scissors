@@ -40,3 +40,13 @@ function playRound(playerSelection, computerSelection){
 
     return resultMessage;
 }
+
+function game(){
+    for(let i = 0; i < 5; i++){
+        const computer = getComputerChoice();
+        const player = prompt("Make your choice:");
+        console.log(`The computer chose ${computer}`);
+        console.log(`You chose ${player}`);
+        console.log(playRound(player, computer));
+    }
+}
