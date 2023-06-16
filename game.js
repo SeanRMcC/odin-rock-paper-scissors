@@ -59,8 +59,8 @@ const cChoice = document.querySelector("#c-choice");
 buttons.forEach(button => {
     button.addEventListener("click", () => {
         const computerChoice = getComputerChoice();
-        cChoice.textContent = `The Computer Chose: ${computerChoice}`
-        results.textContent = playRound(button.textContent, computerChoice);
+        cChoice.textContent = `The Computer Chose: ${computerChoice}`;
+        results.textContent = playRound(button.id, computerChoice);
         pScore.textContent = playerScore;
         cScore.textContent = computerScore;
     });
