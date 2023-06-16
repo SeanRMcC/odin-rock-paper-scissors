@@ -1,0 +1,82 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body, html{
+    height: 100%;
+}
+
+h1{
+    font-size: 50px;
+    margin-top: 0px;
+}
+
+
+
+#game{
+    border: 7px solid white;
+    border-radius: 8px;
+    color: white;
+    padding: 30px 50px;
+}
+
+#buttons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.choice{
+    font-weight: bold;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 15px 25px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+
+#spans{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#c-choice, #results, #winner{
+    text-align: center;
+
+}
+
+#c-choice, #results, .scores{
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+#winner{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#reset{
+    border-radius: 15px;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 30px;
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+#reset-wrapper{
+    display: flex;
+    justify-content: center;
+}
