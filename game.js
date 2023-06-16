@@ -1,3 +1,6 @@
+let computerScore = 0;
+let playerScore = 0;
+
 function getComputerChoice(){
     const choice = parseInt(Math.random() * 3);
     let result;
@@ -21,32 +24,41 @@ function playRound(playerSelection, computerSelection){
     }else if(playerSelection === "rock"){
         if(computerSelection === "paper"){
             resultMessage = "You lose! Paper beats rock!";
+            computerScore++;
         }else{
             resultMessage = "You win! Rock beats scissors!";
+            playerScore++;
         }
     }else if(playerSelection === "paper"){
         if(computerSelection === "rock"){
             resultMessage = "You win! Paper beats rock!";
+            playerScore++;
         }else{
             resultMessage = "You lose! Scissors beats paper!";
+            computerScore++;
         }
     }else if(playerSelection === "scissors"){
         if(computerSelection === "rock"){
             resultMessage = "You lose! Rock beats scissors!";
+            computerScore++;
         }else{
             resultMessage = "You win! Scissors beats paper!";
+            playerScore++;
         }
     }
 
     return resultMessage;
 }
 
-function game(){
-    for(let i = 0; i < 5; i++){
-        const computer = getComputerChoice();
-        const player = prompt("Make your choice:");
-        console.log(`The computer chose ${computer}`);
-        console.log(`You chose ${player}`);
-        console.log(playRound(player, computer));
-    }
-}
+const buttons = document.querySelectorAll("button");
+const results = document.querySelector("#results");
+const pScore = document.querySelector("#p-score");
+const cScore = document.querySelector("#c-score");
+
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        results.textContent = playRound(button.textContent, getComputerChoice());
+        pScore.textContent = playerScore;
+        cScore.textContent = computerScore;
+    });
+});
