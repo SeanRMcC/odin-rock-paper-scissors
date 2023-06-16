@@ -60,18 +60,19 @@ const reset = document.querySelector("#reset");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
-        if(computerScore == 5){
-            winner.style.color = "red";
-            winner.textContent = "Computer Wins! Better luck next time!";
-        }else if(playerScore == 5){
-            winner.style.color = "green";
-            winner.textContent = "Player Wins! Congrats!";
-        }else{
+        if(computerScore < 5 && playerScore < 5){
             const computerChoice = getComputerChoice();
             cChoice.textContent = `The Computer Chose: ${computerChoice}`;
             results.textContent = playRound(button.id, computerChoice);
             pScore.textContent = playerScore;
             cScore.textContent = computerScore;
+            if(computerScore == 5){
+                winner.style.color = "red";
+                winner.textContent = "Computer Wins! Better luck next time!";
+            }else if(playerScore == 5){
+                winner.style.color = "green";
+                winner.textContent = "Player Wins! Congrats!";
+            }
         }
     });
 });
