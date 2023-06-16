@@ -50,18 +50,36 @@ function playRound(playerSelection, computerSelection){
     return resultMessage;
 }
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".choice");
 const results = document.querySelector("#results");
 const pScore = document.querySelector("#p-score");
 const cScore = document.querySelector("#c-score");
 const cChoice = document.querySelector("#c-choice");
+const winner = document.querySelector("#winner");
+const reset = document.querySelector("#reset");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
-        const computerChoice = getComputerChoice();
-        cChoice.textContent = `The Computer Chose: ${computerChoice}`;
-        results.textContent = playRound(button.id, computerChoice);
-        pScore.textContent = playerScore;
-        cScore.textContent = computerScore;
+        if(computerScore == 5){
+            winner.textContent = "Computer Wins! Better luck next time!";
+        }else if(playerScore == 5){
+            winner.textContent = "Player Wins! Congrats!";
+        }else{
+            const computerChoice = getComputerChoice();
+            cChoice.textContent = `The Computer Chose: ${computerChoice}`;
+            results.textContent = playRound(button.id, computerChoice);
+            pScore.textContent = playerScore;
+            cScore.textContent = computerScore;
+        }
     });
+});
+
+reset.addEventListener("click", () => {
+    computerScore = 0;
+    playerScore = 0;
+    pScore.textContent = playerScore;
+    cScore.textContent = computerScore;
+    winner.textContent = "";
+    cChoice.textContent = "";
+    results.textContent = "";
 });
